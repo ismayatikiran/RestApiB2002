@@ -25,7 +25,7 @@ public class SampleApiTest {
         JsonPath jsonPath = new JsonPath(stringResponse);
         String sessionId = jsonPath.get("session.value");
         System.out.println("Session Id: "+sessionId);
-        String loginPrevioustime = jsonPath.get("previousLoginTime");
+        String loginPrevioustime = jsonPath.get("loginInfo.previousLoginTime");
         System.out.println("Login previous time: "+loginPrevioustime);
     }
 
