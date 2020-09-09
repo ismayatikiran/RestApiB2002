@@ -3,6 +3,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,9 +32,26 @@ public class SampleApiTest {
 
 
 
+
+
+    public static void creatIssueTest() throws IOException {
+        String url = "http://localhost:8090/rest/auth/2/session";
+        String creatIssuePayload = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+"/payloads/createIssue.json")));
+        RequestSpecification requestSpecification = RestAssured.given().body(creatIssuePayload);
+        requestSpecification.contentType(ContentType.JSON);
+        requestSpecification.cookie("");
+
+
+      //  dologin();
+    }
+
+
+
+
+
+
+
     public static void main(String[] args) throws IOException {
-        dologin();
-
-
+        creatIssueTest();
     }
 }
